@@ -3,7 +3,7 @@ const app = require('./app');
 
 const PORT = 3000;
 
-fastify.register(app, {prefix: '/test'});
+fastify.register(app);
 
 fastify.listen({ port: PORT }, (err) => {
     if (err) {

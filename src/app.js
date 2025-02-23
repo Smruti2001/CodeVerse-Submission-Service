@@ -1,9 +1,10 @@
 const fastifyPlugin = require('fastify-plugin');
-const testServicePlugin = require('./services/testServicePlugin');
+const servicePlugin = require('./services/servicePlugin');
+const apiRoutes = require('./routes/apiRoutes');
 
-function app(fastify, options) {
-    fastify.register(require('./routes/index'), {prefix: '/api'});
-    fastify.register(testServicePlugin);
+async function app(fastify, options) {
+    await fastify.register(servicePlugin);
+    await fastify.register(apiRoutes, {prefix: '/api'});
 }
 
 module.exports = fastifyPlugin(app);
