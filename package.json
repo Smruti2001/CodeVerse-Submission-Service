@@ -11,9 +11,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bullmq": "^5.41.5",
     "dotenv": "^16.4.7",
     "fastify": "^5.2.1",
     "fastify-plugin": "^5.0.1",
+    "ioredis": "^5.5.0",
     "nodemon": "^3.1.9"
   }
 }

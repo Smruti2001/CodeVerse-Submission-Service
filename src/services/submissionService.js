@@ -1,3 +1,5 @@
+const submissionProducer = require("../producers/submissionQueueProducer");
+
 class SubmissionService {
     constructor() {
         // Can Inject the repo instance in here
@@ -7,8 +9,9 @@ class SubmissionService {
         return 'Pong!!!!'
     }
 
-    async addSubmissions() {
-        return 'Submission Service'
+    async addSubmissions(submission) {
+        const response = await submissionProducer(submission);
+        return response;
     }
 
 }
