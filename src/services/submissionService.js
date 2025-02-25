@@ -1,17 +1,25 @@
 const submissionProducer = require("../producers/submissionQueueProducer");
 
 class SubmissionService {
-    constructor() {
-        // Can Inject the repo instance in here
+    constructor(submissionRepository) {
+        this.submissionRepository = submissionRepository;
     }
 
     async pingCheck() {
         return 'Pong!!!!'
     }
 
-    async addSubmissions(submission) {
+    async addSubmissions(submissionPayload) {
+        const submission = await this.submissionRepository.addSubmission(submissionPayload);
+
+        if(!submission) {
+            throw {message: 'Not able to create the submission'};
+        }
+
+        console.log(submission);
+
         const response = await submissionProducer(submission);
-        return response;
+        return {queueResponse: response, submission};
     }
 
 }

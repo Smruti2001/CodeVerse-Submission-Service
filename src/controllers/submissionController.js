@@ -5,7 +5,12 @@ async function pingController(req, res) {
 
 async function submissionController(req, res) {
     const response = await this.submissionService.addSubmissions();
-    res.send({data: response});
+    return res.status(201).json({
+        error: {},
+        data: response,
+        success: true,
+        message: 'Added submission successfully'
+    })
 }
 
 module.exports = { pingController, submissionController }
