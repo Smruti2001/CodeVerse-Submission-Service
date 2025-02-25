@@ -7,7 +7,7 @@ const submissionSchema = new mongoose.Schema({
     },
     problemId: {
         type: String,
-        required: [true, 'Problem Id for the submission is missiing']
+        required: [true, 'Problem Id for the submission is missing']
     },
     code: {
         type: String,

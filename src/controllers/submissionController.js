@@ -4,8 +4,8 @@ async function pingController(req, res) {
 }
 
 async function submissionController(req, res) {
-    const response = await this.submissionService.addSubmissions();
-    return res.status(201).json({
+    const response = await this.submissionService.addSubmissions(req.body);
+    return res.status(201).send({
         error: {},
         data: response,
         success: true,
