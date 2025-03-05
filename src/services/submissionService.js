@@ -35,7 +35,9 @@ class SubmissionService {
                 code: submission.code,
                 language: submission.language,
                 inputTestCases: problemAdminApiResponse.data.testCases[0].input,
-                outputTestCases: problemAdminApiResponse.data.testCases[0].output
+                outputTestCases: problemAdminApiResponse.data.testCases[0].output,
+                userId: submission.userId,
+                submissionId: submission._id
             }
         });
         return {queueResponse: response, submission};
